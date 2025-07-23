@@ -55,15 +55,17 @@ import Updateproduct from "./Website/Updateproduct";
 import Signup from "./Website/Signup";
 import Login from "./Website/Login";
 import Nav  from "./Website/Nav";
+import Home from "./Website/Home";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
+    <div className="h-screen overflow-hidden flex flex-col">
+      <BrowserRouter >
         <Nav />
         <Routes>
           <Route element={<Privatecomponent/>}>
-          <Route path="/" element={<Productlist/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/products" element={<Productlist/>} />
           <Route path="/add" element={<AddProduct/>} />
           <Route path="/update/:id" element={<Updateproduct/>} />
           <Route path="/profile" element={<h1>profile routes</h1>} />
