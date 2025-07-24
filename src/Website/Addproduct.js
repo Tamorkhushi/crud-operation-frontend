@@ -1,98 +1,3 @@
-// import React, { useState } from "react";
-// import { Navigate, useNavigate } from "react-router-dom";
-
-// export default function AddProduct() {
-//   const [name, setname] = useState("");
-//   const [price, setprice] = useState("");
-//   const [category, setcategory] = useState("");
-//   const [company, setcompany] = useState("");
-//   const [error, seterror] = useState(false);
-
-//   const navigate = useNavigate();
-
-//   const addproduct = async () => {
-//     console.warn(!name);
-//     if (!name || !price || !category || !company) {
-//       seterror(true);
-//       return false;
-//     }
-
-//     console.log(name, price, category, company);
-//     const user_id = JSON.parse(localStorage.getItem("user"))._id;
-//     console.log(user_id);
-//     let data = await fetch("http://localhost:6565/add-product", {
-//       method: "post",
-//       body: JSON.stringify({ name, price, category, company, user_id }).toLowerCase(),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-//     let result = await data.json();
-//     console.warn(result);
-//     //  alert("new record created")
-//     navigate("/");
-//   };
-
-//   return (
-//     <div className="outer">
-//     <h1 className="text-[30px] ml-[10rem] mt-[2rem]">Add product</h1>
-//     <div className="ml">
-//       <input
-//         className="inputbox"
-//         type="text"
-//         placeholder="Enter product Name..."
-//         onChange={(e) => {
-//           setname(e.target.value);
-//         }}
-//       />
-//       {error && !name && (
-//         <span className="invalid-input">Enter valid name **</span>
-//       )}
-//       <input
-//         className="inputbox"
-//         type="text"
-//         placeholder="Enter product Price..."
-//         onChange={(e) => {
-//           setprice(e.target.value);
-//         }}
-//       />
-//       {error && !price && (
-//         <span className="invalid-input">Enter valid price **</span>
-//       )}
-
-//       <input
-//         className="inputbox"
-//         type="text"
-//         placeholder="Enter product Category..."
-//         onChange={(e) => {
-//           setcategory(e.target.value);
-//         }}
-//       />
-//       {error && !category && (
-//         <span className="invalid-input">Enter valid name **</span>
-//       )}
-
-//       <input
-//         className="inputbox"
-//         type="text"
-//         placeholder="Enter product Company..."
-//         onChange={(e) => {
-//           setcompany(e.target.value);
-//         }}
-//       />
-//       {error && !company && (
-//         <span className="invalid-input">Enter valid name **</span>
-//       )}
-
-//       <button className="addbtn" onClick={addproduct}>
-//         Add Product
-//       </button>
-//     </div>
-//     </div>
-//   );
-// }
-
-
 
 
 
@@ -130,16 +35,22 @@ export default function AddProduct() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg">
-        <h1 className="text-3xl font-bold text-blue-600 mb-6 text-center">Add Product</h1>
+    <div className="min-h-screen bg-[#F5F6FA] flex items-center justify-center px-4 py-10">
+      {/* Card */}
+      <div className="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+        {/* Title */}
+        <h1 className="text-3xl font-bold text-[#1E293B] mb-6 text-center">
+          Add New Product
+        </h1>
 
-        <div className="space-y-4">
+        {/* Form Fields */}
+        <div className="space-y-5">
+          {/* Product Name */}
           <div>
             <input
               type="text"
-              placeholder="Enter Product Name..."
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Product Name"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent transition"
               onChange={(e) => setname(e.target.value)}
             />
             {error && !name && (
@@ -147,11 +58,12 @@ export default function AddProduct() {
             )}
           </div>
 
+          {/* Product Price */}
           <div>
             <input
               type="text"
-              placeholder="Enter Product Price..."
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Product Price"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent transition"
               onChange={(e) => setprice(e.target.value)}
             />
             {error && !price && (
@@ -159,11 +71,12 @@ export default function AddProduct() {
             )}
           </div>
 
+          {/* Product Category */}
           <div>
             <input
               type="text"
-              placeholder="Enter Product Category..."
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Product Category"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent transition"
               onChange={(e) => setcategory(e.target.value)}
             />
             {error && !category && (
@@ -171,11 +84,12 @@ export default function AddProduct() {
             )}
           </div>
 
+          {/* Product Company */}
           <div>
             <input
               type="text"
-              placeholder="Enter Product Company..."
-              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Product Company"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0D9488] focus:border-transparent transition"
               onChange={(e) => setcompany(e.target.value)}
             />
             {error && !company && (
@@ -183,9 +97,10 @@ export default function AddProduct() {
             )}
           </div>
 
+          {/* Submit Button */}
           <button
             onClick={addproduct}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200"
+            className="w-full bg-[#0D9488] text-white py-3 rounded-lg font-semibold hover:bg-[#0F766E] transition duration-200 shadow-md"
           >
             Add Product
           </button>
